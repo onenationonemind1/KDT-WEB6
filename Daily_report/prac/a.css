@@ -1,0 +1,33 @@
+.container{
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    position: relative;
+}
+
+.container2{
+    width: 400px;
+    height: 400px;
+    background-color: bisque;
+    position: relative;
+}
+
+div div div {
+    width: 100px;
+    height: 100px;
+    background-color: burlywood;   
+}
+
+.item1 {
+    background-color: red;
+}
+
+.item3 {
+    position: fixed;
+    background-color: aqua;
+    top: 30px;
+    right: 30px;
+    background-image: url("https://i.ytimg.com/vi/J0bPjrUkhzk/maxresdefault.jpg");
+    background-size: contain;
+}
+

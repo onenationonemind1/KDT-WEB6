@@ -1,0 +1,61 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>댓글 등록하기</title>
+  </head>
+  <body>
+    <h1>댓글 등록하기</h1>
+    <form>
+      <label for="userid">아이디</label>
+      <input type="text" id="userid" name="userid" />
+      <label for="comment">댓글</label>
+      <input type="text" id="comment" name="comment" />
+      <button type="submit">등록</button>
+    </form>
+    <ul class="comment-list"></ul>
+    <script>
+      const id = document.getElementById("userid");
+      const comment = document.getElementById("comment");
+      const form = document.querySelector("form");
+      const ul = document.querySelector("ul");
+      console.log(id, comment, form);
+
+      form.addEventListener("submit", (e) => {
+        console.log(e);
+        e.preventDefault();
+
+        //input - userid
+        const todoIntput = document.querySelector('input[name="userid"]');
+        console.log(todoIntput);
+        console.dir(todoIntput);
+        console.log(todoIntput.value);
+        const to1 = todoIntput.value;
+
+        //input - comment
+        const todoIntput2 = document.querySelector('input[name="comment"]');
+        console.log(todoIntput2);
+        console.dir(todoIntput2);
+        console.log(todoIntput2.value);
+        const to2 = todoIntput2.value;
+
+        const li = document.createElement("li");
+        li.innerHTML = `<span style="font-weight: bolder;">${to1}</span>  -  ${to2}`;
+        ul.append(li);
+      });
+
+      // TODO: 아래 조건을 만족하도록 js 파일을 수정하기
+      // 문제
+      // - [ ] 아이디 input과 댓글 input을 입력하고 [등록] 버튼을 누르면, 댓글이 추가됩니다.
+      //     - 폼을 "제출"헸을 때에 해당하는 이벤트는 무엇인가요? submit
+      // - [ ] 아이디 값과 댓글 값을 가져와야 합니다.
+      // - [ ] <li> 태그를 새로 만들고, "아이디 - 댓글내용" 형식이 되도록 설정합니다.
+      // - [ ] <ul class="comment-list"> 태그에 li를 추가합니다.
+      // - [ ] 아이디 input과 댓글 input을 초기화해야 합니다.
+    </script>
+  </body>
+</html>

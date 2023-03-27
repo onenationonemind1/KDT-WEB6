@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        grid-auto-rows: minmax(100px, auto);
+      }
+
+      .row > div:nth-child(2) {
+        height: 100px;
+        background-color: red;
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
+      }
+
+      .row > div:nth-child(2) {
+        height: 100px;
+        background-color: red;
+        grid-column: 2 / span 2;
+        grid-row: 1 / 3;
+      }
+
+      .row > div:nth-child(2) {
+        height: 100px;
+        background-color: red;
+        grid-column: auto / span 2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row" style="text-align: center">
+      <div>가</div>
+      <div>나</div>
+      <div>다</div>
+      <div>라</div>
+      <div>면</div>
+      <div>맛</div>
+    </div>
+  </body>
+</html>

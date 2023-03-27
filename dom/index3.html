@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="./indelx3.js"></script>
+    <style>
+        .body{
+            height: 2000px
+        }
+
+        .btn{
+            width: 80px;
+            height: 35px;
+            border-radius: 13px;
+            text-align: center;
+            line-height: 35px;
+            font-weight: 700;
+            margin: 10px;
+        }
+
+        .btn--black{
+            background-color: black;
+            color: yellow;
+        }
+
+        .btn--green{
+            background-color: green;
+        }
+
+        .btn--blue{
+            background-color: rgb(73,73,255);
+            color:aliceblue
+        }
+
+        .btn--red{
+            background-color: red;
+            color: white;
+        }
+
+        .pos {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            bottom: 300px;
+            transition: 2s;
+            opacity: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="btn btn--black">버튼1</div>
+    <div class="btn btn--green">버튼2</div>
+    <div class="btn btn--blue">버튼3</div>
+    <div class="btn btn--red">버튼4</div>
+    <div id="container"></div>
+
+    <div class="btn btn--red pos">안녕하세요.</div>
+    <button>click me</button>
+    <input type="text">
+
+    <h2>to do list</h2>
+    <form id="todo-form">
+        <input type="text" name="todo">
+        <button>ADD</button>
+    </form>
+    <ul class="todos"></ul>
+
+    <hr>
+    <h2>변경 이벤트</h2>
+    <input type="text" id="change-input">
+    <div class="intro"></div>
+</body
+</html>

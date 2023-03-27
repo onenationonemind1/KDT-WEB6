@@ -1,0 +1,39 @@
+body {
+    height: 2000px;}
+
+div {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+}
+
+
+.position-static{
+    background-color: pink;
+    position: static;
+    top: 100px;
+    left: 50px;
+}
+.position-relative{
+    background-color: aqua;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    
+}
+.position-ablsolute{
+    background-color: gold;
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+}
+.position-fixed{
+    background-color: red;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+.position-relative

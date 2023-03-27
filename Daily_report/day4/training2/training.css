@@ -1,0 +1,82 @@
+div {
+    text-align: center;
+}
+
+.background {
+    background-color: white;
+    border: 1px solid gray;
+    width: 1000px;
+    height: 760px;
+    position: relative;
+    z-index: 0;
+    
+}
+
+.grass {
+    width: 500px;
+    height: 125px;
+    background-image: url("./grass.png");
+    position: absolute;
+    top: 255px;
+    z-index: 9;
+}
+
+.c1, .c2, .c3, .c4, .c5, .c6, .c7 {
+    width: 95px;
+    height: 95px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.c1 {
+    top: 277px;
+    left: 277px;
+    z-index: 10;
+}
+
+.c2 {
+    top: 226px;
+    left: 244px;
+    z-index: 8;
+    background-color: antiquewhite;
+}
+
+.c3 {
+    top: 212px;
+    left: 197px;
+    z-index: 7;
+    background-color: aqua;
+}
+
+.c4 {
+    top: 178px;
+    left: 168px;
+    z-index: 6;
+    background-color: rebeccapurple;
+}
+
+.c5 {
+    top: 124px;
+    left: 118px;
+    z-index: 5;
+    background-color: blue;
+}
+
+.c6 {
+    top: 137px;
+    left: 143px;
+    z-index: 10;
+    background-color: aliceblue;
+    height: 30px;
+    width: 30px;
+}
+
+.c7 {
+    top: 139px;
+    left: 143px;
+    z-index: 11;
+    height: 10px;
+    width: 10px;
+    background-color: black;
+}

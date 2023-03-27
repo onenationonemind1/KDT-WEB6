@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 요소의 상황에 따른 가상선택자
+        1. E: first child () E가 첫번째 요소라면 선택
+        2. E: last-child () E가 마지막 요소라면 선택
+        3. E: nth-child(0 () E가 n번째 요소라면 선택
+        4. E:  
+        */
+        
+        .zoo * {
+            background-color: blue ;
+            color: white;
+        }
+
+        .zoo *:nth-child(2n) {
+            background-color: yellow;
+            color: black;
+        }
+
+        .zoo *:nth-child(4) {
+            background-color: blue ;
+            color: white;
+        }
+
+        .zoo *:nth-child(8) {
+            background-color: blue ;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="zoo">
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>navy</div>
+        <div>yellow</div>
+        <div>navy</div>
+    </div>
+    
+</body>
+</html>

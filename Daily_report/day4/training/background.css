@@ -1,0 +1,35 @@
+.box {
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    text-align: center;
+
+    background-image: url(./small_img.png);
+    background-repeat: repeat;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    background-repeat: no-repeat;
+
+    background-position: center;
+    /* background-position: center top; */
+    /* background-position: center center; */
+
+    background-size: auto; /*default*/
+    background-size: 50px; /*가로기준*/
+    background-size: 100px 100px;
+    background-size: left top;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.box-background{
+    background-color: aquamarine;
+    background: yellow;
+    background: linear-gradient(white,red);
+}
+
+.box-background-image{
+    background-image: url(./small_img.png);
+}

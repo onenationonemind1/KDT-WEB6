@@ -1,0 +1,116 @@
+/* transition vs animation
+
+transition
+    전환될 스타일을 지정
+    hover, active, onlick, 등의 이벤트에 의해 발생
+
+animation
+    중간 stop 지정 가능 : 보다 세미한 스타일 전환 가능
+    정지 반복 시작 동작이 개별적으로 가능.
+    keyframes 로 이루어짐 */
+
+body{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    background-color: yellow;
+}
+
+.box{
+    width: 500px;
+    height: 500px;
+    background-color: brown;
+    position: absolute;
+
+    /* 애니메이션 필수값 */
+    animation: my-ani;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    /* 애니메이션 옵션값 */
+    animation-delay: 2s;
+    animation-timing-function: ease-in;
+    border-radius: 50%;
+}
+
+@keyframes my-ani {
+    0% {
+        transform: translateX(0vw)
+    }
+
+    25% {
+        transform: translate(0vw, calc(100vw-20px));
+    }
+
+    50% {
+        transform: translateY(calc(100vw-20px))), translateX(clac(100vw-20px));
+    }
+
+    75% {
+        transform: translateY(50vh) translateX(0vh);
+    }
+
+
+}
+
+.bounce-ball1{
+    position: relative;
+    left: 0px;
+    top: 0px;
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: aqua;
+    animation-name: bounce1;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+.bounce-ball2{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: pink;
+    position: absolute;
+    animation: bounce2 2s linear infinite;
+}
+
+
+
+@keyframes bounce1{
+    0% {
+        transform: translateX(0vh)
+    }
+
+    25% {
+        transform: translateX(100vh);
+    }
+
+    50% {
+        transform: translateY(100vh) translateX(100vh);
+    }
+
+    75% {
+        transform: translateY(100vh) translateX(0vh);
+    }
+
+    100%{
+        transform: translateY(0vh) translateX(0vh);
+    }
+}
+
+@keyframes bounce2{
+    from,
+    to {
+        bottom: 0;
+        animation-timing-function: ease-out;
+    }
+
+    50% {
+        bottom: 300px;
+        animation-timing-function: ease-in;
+    }
+}

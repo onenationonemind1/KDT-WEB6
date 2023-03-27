@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상요소 선택자아 속성 선택자</title>
+    <style>
+        .div {
+            background-color: pink;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .div::after {
+            content: "after";
+            color: white;
+        }
+        
+        .div:hover::after {
+            content: "얍!";
+            color: white;
+        }
+
+        .div:hover::before {
+            content: "뒤";
+            background-color: red;
+            display: inline;
+            height: 20px;
+        }
+
+        [placeholder] {
+            background-color: yellow;
+        }
+
+        [type="password"]{
+            font-size: 40px;
+        }
+    
+
+
+
+    </style>
+</head>
+<body>
+    <div class="div">가상 요소 선택자</div>
+    <div class="box">여기요!</div>
+    /**3*ss*/
+    <input type="text" placeholder="text1" />
+    <input type="text" placeholder="text2" />
+    <input type="text" placeholder="text3" />
+    <input type="password">
+    <div class="square"></div>
+</body>
+</html>

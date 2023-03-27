@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            background-color: gray;
+            color: white;
+            <!-- 색깔 지정 방법
+            
+            1. 색깔이름을 써주면 됩니다.
+            2. RGB(, ,); 0~ 255까지.
+            3. rgba(, , ,) 0~1까지 #투명도
+            4. 16진수로이루어진 3개의 숫자 연달아서 써주면 됩니다.
+                
+            브라우저 전체에 색지정하는 방법
+            1. <body> 태그를 색칠해줘도 된다.
+
+            -->
+            
+        }
+
+        span {
+            background-color: red;
+        }
+
+        #first {
+            background-color: blue;
+        }
+
+        .second {
+            background-color: rgba(255,255,0,0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>기본 선택자 연습해보기</h1>
+    <p>기본 선택자 연습을 해보아요!</p>
+    <span>안녕하세요.</span>
+    <ol>
+        <li id="first">1</li>
+        <li class="second">2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    
+</body>
+</html>
