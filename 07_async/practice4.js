@@ -28,10 +28,12 @@ function hell() {
 
 async function run() {
   try {
-    await call("John");
-    await back();
+    const name = await call("John");
+    console.log(name + " 반가워");
+    const back1 = await back();
+    console.log(back1 + "을 실행했구나.");
     const result = await hell();
-    console.log(result);
+    console.log("여기는 " + result);
   } catch (error) {
     console.log(error);
   }

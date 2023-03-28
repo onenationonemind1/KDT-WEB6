@@ -115,4 +115,3 @@ setTimeout(function () {
 // }, 1000);
 
 //promiss 사용법
-function po
