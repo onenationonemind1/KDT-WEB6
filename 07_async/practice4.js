@@ -50,6 +50,14 @@ function changeBgColor(color) {
   });
 }
 
-changeBgColor("red").then(function () {
-  changeBgColor("blue");
-});
+// changeBgColor("red").then(function () {
+//   changeBgColor("blue");
+// });
+
+async function changeBgColor1() {
+  await changeBgColor("red");
+  await changeBgColor("blue");
+  await changeBgColor("green");
+}
+
+changeBgColor1();
