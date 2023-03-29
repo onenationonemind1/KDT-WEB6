@@ -17,6 +17,30 @@ app.get("/", function (req, res) {
   res.render("index", { title: myTitle });
 });
 
+// app.get("/getForm", function (req, res) {
+//   // console.log(req); // { xx: {},  yy: {}, ... query: { id: 'sean', pw: '1234' }}
+//   console.log(req.query.id); // { id: 'sean', pw: '1234' }
+//   //   res.send("get 요청 성공!!!");
+//   const idid = req.query.id;
+//   const pwpw = req.query.pw;
+//   res.render("result.ejs", {
+//     title: "GET 요청폼 결과 확인하기",
+//     id1: req.query.id,
+//     pw1: req.query.pw,
+//   }); //확장자 쓰나안쓰나 같음.
+// });
+
+// app.post("/postForm", function (req, res) {
+//   console.log(req.body); // { id: 'apple', pw: '1234' }
+//   //   res.send("post 요청 성공!!!");
+//   res.render("result", {
+//     title: "POST요청 폼 결과 확인하기",
+//     id2: req.body.id,
+//     pw2: req.body.pw,
+//   });
+// });
+
+//Form validation
 app.get("/getForm", function (req, res) {
   // console.log(req); // { xx: {},  yy: {}, ... query: { id: 'sean', pw: '1234' }}
   console.log(req.query.id); // { id: 'sean', pw: '1234' }
@@ -25,8 +49,8 @@ app.get("/getForm", function (req, res) {
   const pwpw = req.query.pw;
   res.render("result.ejs", {
     title: "GET 요청폼 결과 확인하기",
-    id1: req.query.id,
-    pw1: req.query.pw,
+    id2: req.query.id,
+    pw2: req.query.pw,
   }); //확장자 쓰나안쓰나 같음.
 });
 
@@ -43,4 +67,24 @@ app.post("/postForm", function (req, res) {
 app.listen(PORT, function () {
   console.log("웹 서버 실행!!");
   console.log(`http://localhost:${PORT}`);
+});
+
+app.get("/test1", function (req, res) {
+  // views/index.ejs 파일을 찾아서 응답
+  const myTitle2 = "실습1";
+  res.render("test1", { myTitle2: "실습1" });
+});
+
+//결과창
+app.get("/result1", function (req, res) {
+  const myTitle2 = "결과";
+  const query = req.query;
+  console.log(query);
+  res.render("result1", {
+    title: "테스트 결과",
+    myTitle2: myTitle2,
+    qqq: query,
+    // id2: req.query.username,
+    // pw2: req.query.pw,
+  }); //확장자 쓰나안쓰나 같음.
 });
