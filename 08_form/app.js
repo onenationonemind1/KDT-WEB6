@@ -75,6 +75,12 @@ app.get("/test1", function (req, res) {
   res.render("test1", { myTitle2: "실습1" });
 });
 
+app.get("/test2", function (req, res) {
+  // views/index.ejs 파일을 찾아서 응답
+  const myTitle2 = "실습2";
+  res.render("test2", { myTitle2: "실습1" });
+});
+
 //결과창
 app.get("/result1", function (req, res) {
   const myTitle2 = "결과";
@@ -86,5 +92,17 @@ app.get("/result1", function (req, res) {
     qqq: query,
     // id2: req.query.username,
     // pw2: req.query.pw,
+  }); //확장자 쓰나안쓰나 같음.
+});
+
+//결과창
+app.post("/result2", function (req, res) {
+  const myTitle2 = "결과";
+  const query = req.body;
+  console.log(query);
+  res.render("result2", {
+    title: "테스트 결과2",
+    myTitle2: myTitle2,
+    qqq: query,
   }); //확장자 쓰나안쓰나 같음.
 });
