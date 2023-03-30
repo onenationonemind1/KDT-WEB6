@@ -101,8 +101,21 @@ app.post("/result2", function (req, res) {
   const query = req.body;
   console.log(query);
   res.render("result2", {
-    title: "테스트 결과2",
+    title: "실습2 폼 전송 완료",
     myTitle2: myTitle2,
     qqq: query,
   }); //확장자 쓰나안쓰나 같음.
 });
+
+app.get("/test3", function (req, res) {
+  res.render("test3");
+});
+
+app.get("/result3", function (req, res) {
+  res.render("result3", {
+    title: "Reuslt3",
+    qqq: req.query,
+  });
+});
+
+// app.post("/result3", function (req, res) {render("result3",
