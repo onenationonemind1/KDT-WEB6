@@ -22,7 +22,7 @@ app.post("/practice2", function (req, res) {
   console.log(req.body);
   res.send("서버가 응답을 했음.");
 
-  if (realId === req.body.userId && realPw === req.body.UserPw) {
+  if (realId === req.body.userId && realPw === req.body.userPw) {
     res.send({ isLogin: true, userInfo: req.body });
   } else {
     res.send({ inLogin: false });

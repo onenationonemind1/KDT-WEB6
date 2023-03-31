@@ -38,6 +38,12 @@ app.post("/axios", function (req, res) {
   res.send(req.body);
 });
 
+// 3-1. /fetch get 요청
+app.get("/fetch", function (req, res) {
+  console.log(req.query);
+  res.send(req.query);
+});
+
 // 실습1
 app.get("/practice", function (req, res) {
   res.render("practice1");
@@ -51,6 +57,11 @@ app.get("/practice1", function (req, res) {
 
 // 실습2
 app.post("/practice1", function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
+app.post("/fetch", function (req, res) {
   console.log(req.body);
   res.send(req.body);
 });
