@@ -24,7 +24,7 @@ const uploadDetail = multer({
       // path.basename(file.originalname, ext) => apple (확장자 제거한 파일이름만!!)
       // Date.now() => 현재 시간
       // => 1970년 1월 1일 0시 0분 0초를 기준으로 현재까지 경과된 밀리초.
-      done(null, path.basename(file.originalname, ext) + ext);
+      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
       // [파일명 + 현재시간.확장자] 형식으로 파일 업로드
     },
   }),
@@ -62,6 +62,22 @@ app.post("/upload", uploadDetail.single("userfile"), (req, res) => {
 
   res.send("upload 완료~~!!");
 });
+
+// array(): 여러 파일을 한 번에 업로드 할때 사용
+app.post("/upload/array", uploadDetail.array("userfile"), (req, res) => {
+  console.log(req.files);
+  console.log(req.body);
+  res.send("여러개 파일 업로드 완료~!");
+});
+
+app.post(
+  "/upload/fields",
+  uploadDetail.fields([{ name: "userfile1" }, { name: "userfile2" }]),
+  (req, res) => {
+    console.log(req.files); //(userfile1:[{}], userfile2:[{}]형태로 파일 정보 출력)
+    console.log(req.body); //{title1: '망고, title2: '복숭아'}
+  }
+);
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
