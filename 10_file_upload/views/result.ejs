@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+        height: 100vw;
+        display: flex;
+      }
+      .container {
+        width: 40vw;
+        background-color: beige;
+        text-align: center;
+        border-radius: 10%;
+        margin: auto auto;
+      }
+      img {
+        height: 15vw;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./uploads/<%= bd.originalname %>" alt="" />
+      <h1><%= rb.userId %> 님 환영합니다.</h1>
+      <d>비밀번호 : <%= rb.userPw %></d>
+      <div>이름 : <%= rb.name %></div>
+      <div>나이 : <%= rb.age %></div>
+    </div>
+  </body>
+</html>
