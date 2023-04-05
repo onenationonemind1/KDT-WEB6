@@ -7,7 +7,7 @@ exports.main = (req, res) => {
 exports.comments = (req, res) => {
   const comments = Comment.getComments();
 
-  console.log(comments); // 댓글 목록이 [ {}, {}, {}, {} ] 형태로 출력
+  console.log(comment); // 댓글 목록이 [ {}, {}, {}, {} ] 형태로 출력
   res.render("comments", { commentInfos: Comments });
 
   const commentId = req.parmas.id;

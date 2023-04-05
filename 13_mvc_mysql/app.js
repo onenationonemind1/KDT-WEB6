@@ -1,70 +1,16 @@
 const express = require("express"); // express 모듈을 가져옴
 const app = express(); // express 애플리케이션을 생성
-const PORT = 8000; // 포트 번호를 8000으로 설정
+const PORT = 8001; // 포트 번호를 8000으로 설정
 
 app.set("view engine", "ejs"); // view engine 등록
 app.use("/views", express.static(__dirname + "/views")); // ejs를 담을 views 폴더 경로 설정
+app.use("/static", express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오는 모든 형식의 데이터를 파싱(분석)
 app.use(express.json()); // json 형태로 데이터를 주고 받음
 
-// localhost:PORT/ 접속했을 때, index.ejs 를 보여주겠다
-app.get("/", function (req, res) {
-  // views/index.ejs 파일을 찾아서 응답
-  const myTitle = "09_form_dynamics!!!";
-  res.render("index", { title: myTitle });
-});
+const indexRouter = require("./routes");
 
-// 1-1. /ajax get 요청
-app.get("/ajax", function (req, res) {
-  console.log(req.query);
-  res.send(req.query);
-});
-
-// 1-2. /ajax post 요청
-app.post("/ajax", function (req, res) {
-  console.log(req.body);
-  res.send(req.body);
-});
-
-// 1-3. /params get 요청
-app.get("/axios", function (req, res) {
-  console.log(req.query);
-  res.send(req.query);
-});
-
-// 1-4. /params post 요청
-app.post("/axios", function (req, res) {
-  console.log(req.body);
-  res.send(req.body);
-});
-
-// 3-1. /fetch get 요청
-app.get("/fetch", function (req, res) {
-  console.log(req.query);
-  res.send(req.query);
-});
-
-// 실습1
-app.get("/practice", function (req, res) {
-  res.render("practice1");
-});
-
-// 실습2
-app.get("/practice1", function (req, res) {
-  console.log(req.query);
-  res.send(req.query);
-});
-
-// 실습2
-app.post("/practice1", function (req, res) {
-  console.log(req.body);
-  res.send(req.body);
-});
-
-app.post("/fetch", function (req, res) {
-  console.log(req.body);
-  res.send(req.body);
-});
+app.use("/", indexRouter);
 
 app.listen(PORT, function () {
   console.log("웹 서버 실행!!"); // 웹 서버 실행!! 출력
