@@ -49,5 +49,23 @@
         <% } %>
       </tbody>
     </table>
+
+    <script>
+      //form 등록
+  function createVisitor() {
+  const form = document.forms['visitor-form'];
+
+  axios({
+    method: 'POST',
+    url: '/visitor/write'
+    data: {
+      name: form.name.value,
+      comment: form.comment.value
+    }
+  }).then((res) => {
+    console.log(res);
+  })
+}
+    </script>
   </body>
 </html>
