@@ -1,6 +1,6 @@
 const express = require("express"); // express 모듈을 가져옴
 const app = express(); // express 애플리케이션을 생성
-const PORT = 8001; // 포트 번호를 8000으로 설정
+const PORT = 8003; // 포트 번호를 8000으로 설정
 
 app.set("view engine", "ejs"); // view engine 등록
 app.use("/views", express.static(__dirname + "/views")); // ejs를 담을 views 폴더 경로 설정
