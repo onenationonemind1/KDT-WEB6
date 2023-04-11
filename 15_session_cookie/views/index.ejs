@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Popup Example</title>
+  </head>
+  <body>
+    <script>
+      window.onload = function () {
+        // check if a cookie with the name "popup" exists
+        var popupShown = getCookie("popup");
+
+        if (!popupShown) {
+          // set the dimensions of the popup window
+          var width = 500;
+          var height = 400;
+
+          // calculate the position of the popup window to center it on the screen
+          var left = (screen.width - width) / 2;
+          var top = (screen.height - height) / 2;
+
+          // open the popup window using the window.open() method
+          var popup = window.open(
+            "/showPopup",
+            "",
+            "width=" +
+              width +
+              ",height=" +
+              height +
+              ",left=" +
+              left +
+              ",top=" +
+              top
+          );
+
+          // add the checkbox to the popup window
+          var checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.id = "show-popup";
+          checkbox.checked = true;
+          checkbox.addEventListener("change", function () {
+            // when the "show-popup" checkbox is clicked, close the popup window if it's open and set a cookie with the name "popup" and a value of "false" that expires in 30 days
+            var showPopup = document.getElementById("show-popup").checked;
+            if (!showPopup) {
+              popup.close();
+              setCookie("popup", "false", 30);
+            }
+          });
+          popup.document.body.appendChild(checkbox);
+
+          // add a label for the checkbox to the popup window
+          var label = popup.document.createElement("label");
+          label.htmlFor = "show-popup";
+          label.appendChild(popup.document.createTextNode("Don't show again"));
+          popup.document.body.appendChild(label);
+        }
+      };
+
+      function getCookie(name) {
+        var cookieValue = document.cookie.match(
+          "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+        );
+        return cookieValue ? cookieValue.pop() : "";
+      }
+
+      function setCookie(name, value, days) {
+        var date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        var expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + "; " + expires + "; path=/";
+      }
+
+      // check if a cookie with the name "popup" exists when the main page is loaded
+      var popupShown = getCookie("popup");
+      if (popupShown) {
+        // do something if the "popup" cookie exists
+        console.log("Popup already shown.");
+      }
+    </script>
+  </body>
+</html>

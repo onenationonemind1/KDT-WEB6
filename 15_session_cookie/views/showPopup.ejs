@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>??</div>
+    <label>
+      <input type="checkbox" id="show-popup" checked /> 오늘 그만보기
+    </label>
+  </body>
+  <script>
+    setCookie("popup", "false", 30);
+    getCookie("popup");
+
+    // add the checkbox to the popup window
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = "show-popup";
+    checkbox.checked = true;
+    checkbox.addEventListener("change", function () {
+      // when the "show-popup" checkbox is clicked, close the popup window if it's open and set a cookie with the name "popup" and a value of "false" that expires in 30 days
+      var showPopup = document.getElementById("show-popup").checked;
+      if (!showPopup) {
+        popup.close();
+        setCookie("popup", "false", 30);
+      }
+    });
+    popup.document.body.appendChild(checkbox);
+
+    function getCookie(name) {
+      var cookieValue = document.cookie.match(
+        "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+      );
+      return cookieValue ? cookieValue.pop() : "";
+    }
+
+    function setCookie(name, value, days) {
+      var date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + date.toUTCString();
+      document.cookie = name + "=" + value + "; " + expires + "; path=/";
+    }
+  </script>
+</html>
