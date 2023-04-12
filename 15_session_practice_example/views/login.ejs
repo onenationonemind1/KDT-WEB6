@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('include', {title: '로그인'}) %>
+    <link rel="stylesheet" href="/static/login.css" />
+  </head>
+  <body>
+    <form action="/login" method="post">
+    <div class="login-box">
+      <h1>로그인</h1>
+      <p>정답 아이디: banana / 비번: 1234</p>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default" name="id"
+          >ID</span
+        >
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default" name="pw"
+          >PW</span
+        >
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">로그인</button>
+      <br />
+      <a href="./">홈으로 이동하기</a>
+      </form>
+    </div>
+  </body>
+</html>
