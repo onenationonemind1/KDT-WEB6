@@ -1,0 +1,35 @@
+// in views/index.ejs
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="who"></div>
+    <div id="chat">
+      <ul id="messages"></ul>
+      <form id="message-form" action="">
+        <input id="message-input" autocomplete="off" />
+        <button>Send</button>
+      </form>
+      <form id="direct-message-form" action="">
+        <input
+          id="recipient-input"
+          placeholder="Recipient"
+          autocomplete="off"
+        />
+        <input
+          id="direct-message-input"
+          placeholder="Direct message"
+          autocomplete="off"
+        />
+        <button>Send direct message</button>
+      </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
