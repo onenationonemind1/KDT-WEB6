@@ -11,7 +11,7 @@ body {
 #chat {
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  height: 100vh;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -41,6 +41,7 @@ body {
 }
 
 .my-message {
+  width: max-content;
   background-color: #007bff;
   color: white;
   text-align: right;
@@ -69,13 +70,12 @@ body {
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
-  background-color: pink;
+  background-color: yellow;
   color: black;
   text-align: center;
 }
 
 #who {
-  background-color: #23bb62;
+  background-color: #007bff;
   height: 20rem;
-  overflow: scroll;
 }

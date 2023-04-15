@@ -55,7 +55,7 @@ io.on("connect", (socket) => {
     console.log(`chat-message- ${nickname}: ${message}`);
     messageBox.push(message);
     console.log(messageBox, messageBox.length);
-    if (messageBox.length === 5) {
+    if (messageBox.length === 3) {
       messageBox.join(",");
       console.log(messageBox);
       let result = runCompletion(
@@ -90,6 +90,6 @@ io.on("connect", (socket) => {
 });
 
 // Start the server
-http.listen(3002, () => {
+http.listen(3003, () => {
   console.log("Server started on port 3000");
 });

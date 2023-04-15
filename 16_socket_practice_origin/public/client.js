@@ -133,7 +133,8 @@ socket.on("chatGptAns", (result) => {
   result_str = result_str.replace(/\s/g, "");
   console.log(result_str, "@@@@@@@@@@");
   listToPage(result_str);
-  chatMessageToPage(result);
+  chatMessageToPage(result_str);
+  addMessageToPage(result_str, result_str, true);
 });
 
 document.getElementById("message-input").onclick = function () {
