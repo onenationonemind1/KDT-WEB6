@@ -9,7 +9,6 @@ const itsMe = nickname;
 const messageList = document.getElementById("who");
 let nickBox = [];
 let messageBox = [];
-let testBox = [];
 let flag = 0;
 
 if (nickname === "") {
@@ -137,7 +136,7 @@ socket.on("chatGptAns", (result) => {
   chatMessageToPage(result);
 });
 
-document.getElementById("message-input") = function () {
+document.getElementById("message-input").onclick = function () {
   const msg = document.getElementById("message-input").value;
   socket.emit("client_msg", msg);
 

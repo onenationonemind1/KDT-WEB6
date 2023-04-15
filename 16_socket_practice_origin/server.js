@@ -55,7 +55,7 @@ io.on("connect", (socket) => {
     console.log(`chat-message- ${nickname}: ${message}`);
     messageBox.push(message);
     console.log(messageBox, messageBox.length);
-    if (messageBox.length === 4) {
+    if (messageBox.length === 5) {
       messageBox.join(",");
       console.log(messageBox);
       let result = runCompletion(
@@ -63,7 +63,7 @@ io.on("connect", (socket) => {
       )
         .then((result) => {
           console.log("11111111", result, "2222");
-          console.log("result", result, "3333");
+          console.log("result", result, "2222");
           io.emit("chatGptAns", result);
         })
         .catch((error) => {
