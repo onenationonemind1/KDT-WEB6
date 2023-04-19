@@ -1,0 +1,45 @@
+.box {
+  display: flex;
+}
+
+.red {
+  background-color: #ff4136;
+  width: 100px;
+  height: 100px;
+}
+
+.orange {
+  background-color: #ff851b;
+  width: 100px;
+  height: 200px;
+}
+
+.yellow {
+  background-color: #ffdc00;
+  width: 100px;
+  height: 300px;
+}
+
+.green {
+  background-color: #2ecc40;
+  width: 100px;
+  height: 400px;
+}
+
+.blue {
+  background-color: #0074d9;
+  width: 100px;
+  height: 500px;
+}
+
+.navy {
+  background-color: #001f3f;
+  width: 100px;
+  height: 600px;
+}
+
+.purple {
+  background-color: #b10dc9;
+  width: 100px;
+  height: 700px;
+}

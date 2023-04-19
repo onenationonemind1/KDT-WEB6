@@ -1,0 +1,21 @@
+.book {
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px;
+  width: 200px;
+  height: 300px;
+}
+
+.book h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.book p {
+  font-size: 14px;
+}
+
+img {
+  width: 150px;
+}
