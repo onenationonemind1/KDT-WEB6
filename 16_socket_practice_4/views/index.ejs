@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat Room</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../public/main.js"></script>
+  </head>
+  <body>
+    <h1>Chat Room</h1>
+    <div id="room-form">
+      <label for="room-input">Enter room name:</label>
+      <input type="text" id="room-input" />
+      <button id="join-button">Join room</button>
+    </div>
+    <div id="chat-room" style="display: none">
+      <div id="messages"></div>
+      <form id="message-form">
+        <input type="text" id="message-input" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </body>
+</html>

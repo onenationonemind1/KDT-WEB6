@@ -66,8 +66,8 @@ body {
   text-align: center;
 }
 
-.chat-message {
-  margin: 10px 0;
+.chat-message{
+   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
   background-color: yellow;
@@ -79,3 +79,4 @@ body {
   background-color: #007bff;
   height: 20rem;
 }
+

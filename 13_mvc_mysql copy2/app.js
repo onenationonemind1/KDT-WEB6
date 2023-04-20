@@ -8,10 +8,12 @@ app.use("/static", express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오는 모든 형식의 데이터를 파싱(분석)
 app.use(express.json()); // json 형태로 데이터를 주고 받음
 
+
+// [라우터 분리]
 const indexRouter = require("./routes");
 app.use("/", indexRouter);
-const indexRouter = require("./routes/user");
-app.use("/user", userRouter);
+const indexRouter = require("./routes/user"); //router/user.js 파일 불러오기
+app.use("/user", userRouter); //localhost:POST/user
 
 app.listen(PORT, function () {
   console.log("웹 서버 실행!!"); // 웹 서버 실행!! 출력

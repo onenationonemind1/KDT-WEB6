@@ -2,50 +2,74 @@ const express = require("express");
 const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
+//
+const axios = require("axios");
+const openaiApiKey = "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";
+const apiUrl = "https://api.openai.com/v1/";
+async function generateText(prompt) {
+  const response = await axios.post(
+    apiUrl + "engines/davinci-codex/completions",
+    {
+      prompt: prompt,
+      max_tokens: 50,
+      n: 1,
+      stop: "\n",
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${openaiApiKey}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
-// Set the view engine to ejs
+  return response.data.choices[0].text.trim();
+}
+
+(async () => {
+  const prompt = "How to connect ChatGPT API in Node.js?";
+  const text = await generateText(prompt);
+  console.log(text);
+})();
+//
 app.set("view engine", "ejs");
 
-// Serve static files from the public directory
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
-// Serve the index page
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Listen for socket connections
+const users = {};
+
 io.on("connection", (socket) => {
-  console.log("A user connected   ID :", `${socket.id}`);
-
-  // Listen for chat messages
-  socket.on("chat-message", ({ nickname, message }) => {
-    console.log(`${nickname}::: ${message}`);
-    io.emit("chat-message", { nickname, message });
+  socket.on("new-user", (username) => {
+    users[socket.id] = username;
+    socket.broadcast.emit("user-connected", username);
   });
 
-  //Listen for chat message - test
-  socket.on("notice", ({ nickname, message }) => {
-    io.emit("notice", { nickname, message });
-  });
-
-  // Disconnect event
-  socket.on("disconnect", (nickname) => {
-    console.log("A user disconnected");
-  });
-
-  socket.on("direct-message", ({ sender, recipient, message }) => {
-    console.log(`${sender} -> ${recipient}: ${message}`);
-    const recipientSocket = io.sockets.sockets.find(
-      (s) => s.nickname === recipient
-    );
-    if (recipientSocket) {
-      recipientSocket.emit("direct-message", { sender, message });
+  socket.on("send-message", (message, to) => {
+    if (to === "Everyone") {
+      socket.broadcast.emit("message", {
+        message: message,
+        username: users[socket.id],
+        to: to,
+      });
+    } else {
+      io.to(Object.keys(users).find((id) => users[id] === to)).emit("message", {
+        message: message,
+        username: users[socket.id],
+        to: to,
+      });
     }
+  });
+
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("user-disconnected", users[socket.id]);
+    delete users[socket.id];
   });
 });
 
-// Start the server
-http.listen(3002, () => {
-  console.log("Server started on port 3000");
+http.listen(8000, () => {
+  console.log("Listening on port 3000");
 });

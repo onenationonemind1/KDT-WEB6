@@ -5,6 +5,7 @@ const Prac2 = () => {
   const changeStr = () => {
     setStr("GoodBye world!");
   };
+  
 
   return (
     <>

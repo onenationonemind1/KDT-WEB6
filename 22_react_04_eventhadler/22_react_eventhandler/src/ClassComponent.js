@@ -27,6 +27,7 @@ class ClassComponent extends React.Component {
         클래스형 컴포넌트에서 이벤트 사용해보기
         <button onClick={this.printConsole}>print console</button>
       </div>
+      
     );
   }
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <h1>Chat</h1>
+    <div id="messages"></div>
+    <form id="chat-form">
+      <input type="text" id="chat-message" />
+      <button type="submit">Send</button>
+    </form>
+    <script>
+      $(function () {
+        var socket = io();
+        var username = "<%= username %>";
+
+        $("#chat-form").submit(function (e) {
+          e.preventDefault();
+          var message = $("#chat-message").val();
+          if (message.trim() !== "") {
+            socket.emit("chat message", {
+              username: username,
+              message: message,
+            });
+            $("#chat-message").val("");
+          }
+        });
+
+        socket.on("chat message", function (msg) {
+          var messageClass =
+            msg.username === username ? "message-right" : "message-left";
+          $("#messages").append(
+            $("<div>")
+              .addClass("message")
+              .addClass(messageClass)
+              .append(
+                $("<span>").text(msg.username),
+                $("<p>").text(msg.message)
+              )
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

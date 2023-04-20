@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat</title>
+    <!-- Include the socket.io client library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Include the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      /* Style the chat messages list */
+      #messages {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      #messages li {
+        padding: 5px 10px;
+        /* Style the chat messages based on who sent them */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      #messages li.right {
+        justify-content: flex-end;
+      }
+      #messages li.left {
+        justify-content: flex-start;
+      }
+      #messages li.right .name {
+        margin-left: 10px;
+      }
+      #messages li.left .name {
+        margin-right: 10px;
+      }
+      #messages li:nth-child(odd) {
+        background-color: #f1f1f1;
+      }
+      /* Style the user list */
+      #users {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create the chat UI -->
+    <h1>Chat</h1>
+    <ul id="messages"></ul>
+    <form id="message-form">
+      <input id="name-input" type="text" placeholder="Nickname" />
+      <input id="message-input" type="text" placeholder="Message" />
+      <button type="submit">Send</button>
+    </form>
+    <!-- Display the list of connected users -->
+    <h2>Users</h2>
+    <ul id="users"></ul>
+    <script>
+      $(function () {
+        // Connect to the server with socket.io
+        const socket = io();
+
+        // When the user submits the message form
+        $("#message-form").submit(function (e) {
+          e.preventDefault(); // Prevent the form from submitting normally
+          const name = $("#name-input").val(); // Get the user's nickname
+          const message = $("#message-input").val(); // Get the user's message
+          if (name && message) {
+            // If both the nickname and message are filled out
+            const msg = { name: name, message: message };
+            // Emit the chat message to the server
+            socket.emit("chat message", msg);
+            // Clear the message input
+            $("#message-input").val("");
+          }
+          return false;
+        });
+
+        // When the user joins the chat
+        const name = prompt("Please enter your nickname:"); // Prompt the user for their nickname
+        if (name) {
+          // If the user entered a nickname
+          const user = { id: socket.id, name: name };
+          // Emit the user joined event to the server
+          socket.emit("user joined", user);
+          // Set the nickname input to the user's nickname
+          $("#name-input").val(name);
+        }
+
+        // When the server emits a chat message
+        socket.on("chat message", function (msg) {
+          // Add the message to the messages list
+          $("#messages").append(
+            $("<li>")
+              .addClass(socket.id === msg.id ? "right" : "left")
+              .append($("<span>").addClass("name").text(msg.name))
+              .append($("<span>").text(msg.message))
+          );
+        });
+
+        // When the server emits an updated user list
+        socket.on("user list", function (users) {
+          // Clear the user list
+          $("#users").empty();
+          // Add each user to the user list
+          users.forEach(function (user) {
+            $("#users").append($("<li>").text(user.name));
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
