@@ -52,3 +52,11 @@ const newWorlds = words.filter((element) => {
   return element.includes("t");
 });
 console.log(newWorlds);
+
+// 3.
+const tripleNums = num.map((n) => n * 3);
+console.log(tripleNums); // 3, 6, 9 , 12 ,15
+console.log(tripleNums.includes(3)); // 3원소가 있는가 => true
+console.log(tripleNums.includes(7)); // 3원소가 있는가 => false
+console.log(tripleNums.indexOf(9)); // 9원소의 인덱스 위치는 ? 있음 인덱스 위치=> 2
+console.log(tripleNums.indexOf(7)); // 7원소의 인덱스 위치는 ? 없음 => -1
