@@ -1,3 +1,5 @@
+//실습2
+
 import React, { useState } from "react";
 
 function CounterFunc() {
