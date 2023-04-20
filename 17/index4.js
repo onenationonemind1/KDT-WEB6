@@ -48,7 +48,7 @@ const dobbleNums = nums.map((num) => {
 console.log(dobbleNums);
 
 // 2. filter() 이용해서 글자에 t 포함 필터링하는 newWords 배열 작성
-const newWorlds = words.filter((str) => {
-  return str.includes("t");
+const newWorlds = words.filter((element) => {
+  return element.includes("t");
 });
 console.log(newWorlds);
