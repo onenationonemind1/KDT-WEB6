@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Prob3 from "./Prop3";
+import Alphabet from "./Alphabet";
+import Prac from "./PostFrom";
+import Table from "./test";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Alphabet />; */}
+      {/* <Prac /> */}
+      {/* <Table /> */}
+      <Prob3 />
     </div>
   );
 }

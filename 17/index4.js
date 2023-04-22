@@ -60,3 +60,23 @@ console.log(tripleNums.includes(3)); // 3원소가 있는가 => true
 console.log(tripleNums.includes(7)); // 3원소가 있는가 => false
 console.log(tripleNums.indexOf(9)); // 9원소의 인덱스 위치는 ? 있음 인덱스 위치=> 2
 console.log(tripleNums.indexOf(7)); // 7원소의 인덱스 위치는 ? 없음 => -1
+
+const aaa = ["a", "b", "c"];
+const bbb = ["d", "e", "f"];
+
+// concat(): 배열 합치기
+console.log(aaa.concat(bbb)); // ['a',b','c','d','e','f']
+
+const arr1 = [
+  { name: "a", id: 1 },
+  { name: "b", id: 2 },
+  { name: "c", id: 3 },
+];
+const arr2 = [
+  { name: "d", id: 4 },
+  { name: "e", id: 5 },
+  { name: "f", id: 6 },
+];
+
+const arr3 = arr1.concat(arr2);
+console.log(arr3);
