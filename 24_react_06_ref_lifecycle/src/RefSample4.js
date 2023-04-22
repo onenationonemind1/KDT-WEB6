@@ -7,7 +7,7 @@ class RefSample4 extends React.Component {
   handleFocus = () => {
     // 3. current 이용해서 dom 요소 접근
     console.log(this.myInput);
-    // this.myInput.current;
+    this.myInput.current.focus();
   };
 
   render() {
