@@ -24,10 +24,14 @@
 
 // export default App;
 
+import axios from "axios";
+//axios를 가져옵니다.
 import React, { useState, useEffect } from "react";
+//React, useState, useEffect를 가져옵니다.
 import PostItem from "./PostItem";
+//Postitem 컴포넌트를 가져옵니다.
 import "./App.css";
-
+//css를 가져옵니다.
 const fakePosts = [
   { id: 1, title: "Fake Post 1", content: "Lorem ipsum dolor sit amet." },
   { id: 2, title: "Fake Post 2", content: "Consectetur adipiscing elit." },
@@ -40,12 +44,35 @@ const fakePosts = [
 ];
 
 export default function PostList() {
+  //posts 상태를 관리하는 useState 훅을 사용합니다. posts의 초기값은 빈 배열입니다.
   const [posts, setPosts] = useState([]);
 
+  //useEffect 훅을 사용합니다.
   useEffect(() => {
+    //CancelToken.source() 함수를 통해 CancelToken을 만들고,
+    //CancelToken을 이용하여, 요청을 취소할 수 있습니다.
+    const source = axios.CancelToken.source();
+    //setTimeout 함수를 사용하여 2초 후에 axios로 데이터를 요청합니다.
     setTimeout(() => {
-      setPosts(fakePosts);
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts", {
+          cancelToken: source.token,
+          timeout: 2000, // 대기 시간을 2초로 설정
+        })
+        .then((response) => {
+          setPosts(response.data);
+        })
+        .catch((error) => {
+          if (axios.isCancel(error)) {
+            console.log("Request canceled by user");
+          } else {
+            console.log(error);
+          }
+        });
     }, 2000);
+    return () => {
+      source.cancel("Request canceled by cleanup");
+    };
   }, []);
 
   return (

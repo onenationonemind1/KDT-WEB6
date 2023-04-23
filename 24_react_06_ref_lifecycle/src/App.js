@@ -24,7 +24,6 @@
 
 // export default App;
 
-import React, { useState, useEffect } from "react";
 import PostList from "./PostList";
 
 export default function App() {
