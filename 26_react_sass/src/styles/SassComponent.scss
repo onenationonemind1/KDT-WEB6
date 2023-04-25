@@ -1,0 +1,88 @@
+@import "./utils.scss"; // scss 주석
+// 특징4. mixin 사용 (=함수)
+// 믹스인을 정의할 때; @mixin 키워드
+// 믹스인을 사용할 때; @include 키워드
+@import "~include-media/dist/include-media";
+// ~: node_modules에서 라이브러리 디렉토리를 알아서 탐지.
+
+@mixin box($size) {
+  width: $size;
+  height: $size;
+}
+
+// 특징3. $변수 선언
+// $color-red: red;
+// $color-orange: orange;
+// $color-yellow: yellow;
+// $color-green: green;
+// $color-blue: blue;
+// $color-indigo: indigo;
+// $color-purple: purple;
+// //Duration 변수
+// $animation-duration: 0.4s;
+
+// 특징1. 중첩 가능 (nesting)
+// : 요소간 부모 자식 표현이 쉬움
+
+.SassComponent {
+  margin-top: 30px;
+  display: flex;
+  background-color: rgb(45, 64, 220);
+
+  .box {
+    // width: 100px;
+    // height: 100px;
+    @include box(110px);
+
+    &:hover {
+      $box-animation: $color-red;
+      cursor: pointer;
+      transform: translateY(-20px);
+      transition: transform $box-animation;
+    }
+
+    // 특징2. & 선택자 사용 가능
+    // 부모 선택자를 참조하여 치환
+    &.red {
+      // .box.red
+      background-color: $color-red;
+    }
+    &.orange {
+      // .box.orange
+      background-color: $color-orange;
+    }
+    &.yellow {
+      // .box.yellow
+      background-color: $color-yellow;
+    }
+    &.green {
+      // .box.red
+      background-color: $color-green;
+    }
+    &.blue {
+      // .box.blue
+      background-color: $color-blue;
+    }
+    &.indigo {
+      // .box.indigo
+      background-color: $color-indigo;
+    }
+    &.purple {
+      // .box.purple
+      background-color: $color-purple;
+    }
+  }
+}
+
+// 반응형
+// @media (max-width: #{$breakpoint-tablet}) {
+//   .SassComponent {
+//     flex-direction: column;
+//   }
+// }
+
+@include media("<758px") {
+  .SassComponent {
+    flex-direction: column;
+  }
+}
