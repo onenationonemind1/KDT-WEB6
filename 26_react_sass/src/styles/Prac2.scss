@@ -1,0 +1,126 @@
+@import "~include-media/dist/include-media";
+
+@mixin box($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin posi($size) {
+  left: $size;
+  right: $size;
+}
+
+.Prac2 {
+  display: flex;
+  @include box(1800px);
+  background-image: url("https://www.thedailypost.kr/news/photo/202210/89609_86381_4537.png");
+  background-size: 100%;
+}
+
+.box {
+  height: 100px;
+  width: 100px;
+}
+
+.Prac2 .red {
+  @include box(110px);
+  position: absolute;
+  @include box(50px);
+  background-color: red;
+  animation-name: move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-guOsjb85OJSUt8GwtE4UfK3p0Yk3KXLLkUybsvPVJxAU0dcsbMpMwua91b2jJAg1lE0&usqp=CAU");
+  background-size: 100%;
+
+  @keyframes move {
+    0% {
+      left: 0px;
+      top: 0px;
+    }
+    25% {
+      left: 200px;
+      top: 0px;
+    }
+    50% {
+      left: 200px;
+      top: 200px;
+    }
+    75% {
+      left: 0px;
+      top: 200px;
+    }
+    100% {
+      left: 0px;
+      top: 0px;
+    }
+  }
+}
+.Prac2 .orange {
+  @include box(110px);
+  position: absolute;
+  @include box(50px);
+  background-color: blue;
+  animation-name: move1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  background-image: url("https://farm8.staticflickr.com/7441/27265930982_dc4562ee76_b.jpg");
+  background-size: 100%;
+
+  @keyframes move1 {
+    0% {
+      left: 0px;
+      top: 50px;
+    }
+    25% {
+      left: 300px;
+      top: 50px;
+    }
+    50% {
+      left: 300px;
+      top: 300px;
+    }
+    75% {
+      left: 0px;
+      top: 300px;
+    }
+    100% {
+      left: 0px;
+      top: 50px;
+    }
+  }
+}
+.Prac2 .yellow {
+  @include box(110px);
+  position: absolute;
+  @include box(50px);
+  background-color: blueviolet;
+  animation-name: move3;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  background-image: url("https://t1.daumcdn.net/cfile/tistory/9955A5475D04B31631");
+  background-size: 100%;
+
+  @keyframes move3 {
+    0% {
+      left: 0px;
+      top: 100px;
+    }
+    25% {
+      left: 400px;
+      top: 100px;
+    }
+    50% {
+      left: 400px;
+      top: 400px;
+    }
+    75% {
+      left: 0px;
+      top: 400px;
+    }
+    100% {
+      left: 0px;
+      top: 100px;
+    }
+  }
+}

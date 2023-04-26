@@ -57,3 +57,6 @@ const UseMemoTest = () => {
 };
 
 export default UseMemoTest;
+
+// "수행한 연산의 결과 값을 기억함으로써 "
+// 계산을 최소화 함.

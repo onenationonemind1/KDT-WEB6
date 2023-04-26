@@ -1,0 +1,76 @@
+@import "~include-media/dist/include-media";
+
+//breakpoint 변수 선언
+$breakpoint-md: 768px;
+$breakpoint-md: 532px;
+
+// ver1. flex
+// .Prob4 {
+//   display: flex;
+
+//   div {
+//     width: 20%;
+
+//     img {
+//       width: 100%;
+//       aspect-ratio: 16/9;
+//       object-fit: cover;
+//     }
+//   }
+// }
+
+// // flex-wrap : wrap 사이즈가 넘어갔을 때 개행처리가 된다.
+// @include media("<#{$breakpoint-md}") {
+//   .Prob4 {
+//     flex-wrap: wrap;
+
+//     div {
+//       width: 33.3%;
+//     }
+//   }
+// }
+
+// @include media("<#{$breakpoint-sm}") {
+//   .Prob4 {
+//     div {
+//       width: 100%;
+//     }
+//   }
+// }
+
+//ver2. grid
+.Prob4 {
+  display: grid;
+  //   grid-template-columns: 1fr 2fr 1fr 2fr 1fr; //5개의 이미지가 1:1:1
+  //   grid-template-columns: 100px 200px 300px 200px 100px; //5개의 이미지가 1:1:1
+  // grid-template-columns: 100px 1fr 1fr 1fr1 1fr; //5개의 이미지가 1:1:1
+  grid-template-columns: repeat(5, 1fr); //5개의 이미지가 1:1:1
+
+  div {
+    width: 100%;
+
+    img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+  }
+}
+
+@include media("<#{$breakpoint-md}") {
+  .Prob4 {
+    flex-wrap: wrap;
+
+    div {
+      width: 33.3%;
+    }
+  }
+}
+
+@include media("<#{$breakpoint-sm}") {
+  .Prob4 {
+    div {
+      width: 100%;
+    }
+  }
+}
