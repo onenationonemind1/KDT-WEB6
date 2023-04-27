@@ -1,4 +1,5 @@
 import "../components/ProductItem";
+import ProductItem from "../components/ProductItem";
 
 const ProductPage = (props) => {
   console.log(props);
