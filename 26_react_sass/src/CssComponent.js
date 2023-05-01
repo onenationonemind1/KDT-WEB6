@@ -1,4 +1,4 @@
-import "./styles/CssComponent.css";
+import "./styles//CssComponent.css";
 
 const CssComponent = () => {
   return (
